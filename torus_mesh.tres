@@ -1,0 +1,4 @@
+[gd_resource type="TorusMesh" format=3 uid="uid://cmcowyoivgcdv"]
+
+[resource]
+lightmap_size_hint = Vector2i(33, 9)
