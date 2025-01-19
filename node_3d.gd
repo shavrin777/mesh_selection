@@ -18,9 +18,8 @@ func count_points() -> void:
 	for normal: Vector3 in mesh_normals:
 		if (normal.dot(camVec3) > 0):
 			if (Geometry2D.is_point_in_polygon(get_viewport().get_camera_3d().unproject_position(mesh_vertices[i]),corners)):
-				var query = PhysicsRayQueryParameters3D.create(mesh_vertices[i], camVec3)
-				query.collide_with_areas = true
-				query.hit_from_inside = true
+				var query = PhysicsRayQueryParameters3D.create(mesh_vertices[i] + mesh_normals[i].normalized()*0.01, camVec3)
+				#query.hit_from_inside = true
 				var result = space_state.intersect_ray(query)
 				if result.is_empty():
 					sel.append(i)
